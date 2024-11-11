@@ -1,16 +1,18 @@
 import PropTypes from "prop-types";
-
 import Checkbox from "./Checkbox";
 import DeleteButton from "./DeleteButton";
+import useTodoCheckbox from "../../hooks/useTodoCheckbox";
 
 const TodoItem = ({ id, title, completed, onDelete }) => {
+  const { isCompleted, toggleCompleted } = useTodoCheckbox(completed);
+
   return (
     <div
       className={`todoItem_list_todo ${
-        completed ? "todoItem_list_todo--completed" : ""
+        isCompleted ? "todoItem_list_todo--completed" : ""
       }`}
     >
-      <Checkbox checked={completed} />
+      <Checkbox checked={isCompleted} onChange={toggleCompleted} />
       <span className="todoItem_list_todo_title">{title}</span>
       <DeleteButton onClick={() => onDelete(id)} />
     </div>
