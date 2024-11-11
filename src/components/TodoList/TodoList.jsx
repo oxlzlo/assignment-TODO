@@ -2,13 +2,19 @@ import useTodos from "../../hooks/useTodos";
 import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-  const todos = useTodos();
+  const { todos, deleteTodo } = useTodos();
 
   return (
     <div className="todoItem">
       <div className="todoItem_list">
-        {todos.map((todo, index) => (
-          <TodoItem key={index} title={todo.title} completed={todo.completed} />
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            title={todo.title}
+            completed={todo.completed}
+            onDelete={deleteTodo}
+          />
         ))}
       </div>
     </div>
