@@ -1,6 +1,6 @@
 .layout {
   width: 60%;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
 
   &_header {
@@ -9,6 +9,7 @@
   }
 
   &_main {
-    @include flex(start, start);
+    display: flex;
+    height: 100%;
   }
 }
