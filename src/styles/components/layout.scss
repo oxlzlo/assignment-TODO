@@ -1,0 +1,14 @@
+.layout {
+  width: 60%;
+  height: 100vh;
+  margin: 0 auto;
+
+  &_header {
+    @include flex;
+    width: 100%;
+  }
+
+  &_main {
+    @include flex(start, start);
+  }
+}
