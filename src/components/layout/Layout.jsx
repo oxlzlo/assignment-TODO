@@ -1,4 +1,4 @@
-import useTodos from "../../hooks/useTodos";
+import useFetchTodos from "../../hooks/useFetchTodos";
 import LoadMoreButton from "../LoadMoreButton";
 import Title from "../Title";
 import TodoAddInput from "../TodoAddInput";
@@ -8,7 +8,7 @@ import Header from "./Header";
 import SideNav from "./SideNav";
 
 const Layout = () => {
-  const { fetchNextPage, hasNextPage, isFetchingNextPage } = useTodos();
+  const { fetchNextPage, hasNextPage, isFetchingNextPage } = useFetchTodos();
 
   return (
     <div className="layout">

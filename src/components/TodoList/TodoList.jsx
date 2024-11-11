@@ -1,8 +1,10 @@
-import useTodos from "../../hooks/useTodos";
+import useFetchTodos from "../../hooks/useFetchTodos";
+import useTodoDelete from "../../hooks/useTodoDelete";
 import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-  const { data, deleteTodo } = useTodos();
+  const { data } = useFetchTodos();
+  const { deleteTodo } = useTodoDelete();
 
   return (
     <div className="todoItem">
