@@ -1,0 +1,14 @@
+.todoAddInput {
+  width: 50%;
+  height: 4vh;
+  padding: 0 1vw;
+  margin-top: 4vh;
+  border: 1px solid $pink-50;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: $pink-10;
+
+  &:focus {
+    outline: none;
+  }
+}
