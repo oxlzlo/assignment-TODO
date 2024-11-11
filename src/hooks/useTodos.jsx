@@ -12,7 +12,11 @@ const useTodos = () => {
       );
   }, []);
 
-  return todos;
+  const deleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
+  return { todos, deleteTodo };
 };
 
 export default useTodos;
