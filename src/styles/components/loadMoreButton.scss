@@ -1,0 +1,18 @@
+.loadMoreButton {
+  @include flex;
+  width: 80%;
+  height: 5.5vh;
+  margin-bottom: 4vh;
+  border: none;
+  border-radius: 8px;
+  font-size: 2vw;
+  color: white;
+  background-color: $pink-70;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $pink-70;
+    color: $pink-70;
+    background-color: white;
+  }
+}
