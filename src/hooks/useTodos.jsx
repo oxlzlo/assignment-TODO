@@ -1,22 +1,44 @@
-import { useState, useEffect } from "react";
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
+
+const fetchTodos = async ({ pageParam = 1 }) => {
+  const response = await fetch(
+    `https://my-json-server.typicode.com/arahansa/todojsmockdata/${pageParam}`
+  );
+  if (!response.ok) {
+    throw new Error("데이터를 불러오는 데 실패했습니다");
+  }
+  return response.json();
+};
 
 const useTodos = () => {
-  const [todos, setTodos] = useState([]);
+  const queryClient = useQueryClient();
 
-  useEffect(() => {
-    fetch("https://my-json-server.typicode.com/arahansa/todojsmockdata/1")
-      .then((response) => response.json())
-      .then((data) => setTodos(data))
-      .catch((error) =>
-        console.error("투두리스트 데이터 불러오기 실패", error)
-      );
-  }, []);
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ["todos"],
+      queryFn: fetchTodos,
+      getNextPageParam: (lastPage, allPages) => {
+        const nextPage = allPages.length + 1;
+        return nextPage <= 3 ? nextPage : undefined;
+      },
+    });
 
   const deleteTodo = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+    queryClient.setQueryData(["todos"], (oldData) => {
+      if (!oldData) {
+        return oldData;
+      }
+
+      return {
+        ...oldData,
+        pages: oldData.pages.map((page) =>
+          page.filter((todo) => todo.id !== id)
+        ),
+      };
+    });
   };
 
-  return { todos, deleteTodo };
+  return { data, fetchNextPage, hasNextPage, isFetchingNextPage, deleteTodo };
 };
 
 export default useTodos;
