@@ -1,12 +1,12 @@
 export const validateNoBlank = (newTodo) => {
-  if (/^\S+$/.test(newTodo)) {
+  if (newTodo.trim()) {
     return false;
   }
   return true;
 };
 
 export const validateMoreThanThreeLetters = (newTodo) => {
-  if (/^.{3,}$/.test(newTodo)) {
+  if (newTodo.length >= 3) {
     return false;
   }
   return true;
