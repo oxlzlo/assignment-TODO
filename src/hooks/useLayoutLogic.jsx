@@ -36,8 +36,6 @@ const useLayoutLogic = () => {
     });
 
     setTodos((prev) => [newTodo, ...prev]);
-
-    console.log(newTodo);
   };
 
   return {
