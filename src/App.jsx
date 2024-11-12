@@ -1,5 +1,8 @@
+import "../src/styles/main.scss";
+import Layout from "./components/layout/Layout";
+
 function App() {
-  return <>TODO 만들기</>;
+  return <Layout />;
 }
 
 export default App;
