@@ -1,8 +1,23 @@
-# React + Vite
+## HTML, CSS 기본요구사항
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- [x] 상단 좌측 레이아웃 형태
+- [x] TODO 구성요소 ( 입력영역, 목록, TODO 하나의 항목 )
+- [x] TODO 항목 - 체크박스, 제목, 삭제 버튼
+- 디자인은 아름답지 않아도 되며 기본적인 레이아웃 형태만 갖춰지면 됩니다.
+- 너무 시간이 소요되지 않는 선에서 기본적인 것들만 구현되면 됩니다.
 
-Currently, two official plugins are available:
+## **Javascript 기본 요구사항**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [x] 첫 페이지 로딩 시 다음의 mock 서버 json 응답으로부터 TODO 데이터들을 표현해줍니다.
+
+[x] 3페이지까지 표현하고 4페이지를 호출하는 더 보기 버튼을 누를 시 응답형태가 일반적이지 않으므로 MORE 버튼이 사라지게 됩니다.
+
+- [x] TODO 생성
+- [x] 삭제
+- [x] 체크하기 ( 초기 서버 호출 이후로는 페이지 자체적으로 데이터를 가집니다 )
+- [x] TODO 입력에는 기본적인 validation (빈칸입력, 글자수)는 있어야합니다.
+- [x] TODO 수정하기 기능은 안해주셔도 됩니다.
+
+## 옵션구현 사항
+
+- 개인적으로 필요하다고 싶으신 경우 반응형CSS, 네트워크 부가적인 처리등을 진행해주셔도 무방합니다.
